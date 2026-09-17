@@ -100,6 +100,10 @@ p { margin: 0 0 1.1em; max-width: 68ch; }
 }
 .site-nav .name:hover { color: var(--accent); }
 
+/* Home page nav has no name/logo (the h1 below already carries it),
+   so just push the menu to the right where it normally sits. */
+.site-nav--home { justify-content: flex-end; }
+
 .site-nav ul {
   list-style: none;
   display: flex;
@@ -140,7 +144,7 @@ p { margin: 0 0 1.1em; max-width: 68ch; }
 
 .hero {
   position: relative;
-  padding-top: 12px;
+  padding-top: clamp(40px, 9vw, 88px);
 }
 
 .hero-grid {
@@ -171,16 +175,24 @@ p { margin: 0 0 1.1em; max-width: 68ch; }
   margin-bottom: 1.6em;
 }
 
-/* Faint scanpath, drawn behind the hero on load */
+/* Faint scanpath, drawn on load: a single horizontal-ish trace that
+   runs across the gap between the nav and the title. It's sized by
+   width alone (height: auto), so it scales uniformly with the
+   viewport at its viewBox's own aspect ratio — no independent x/y
+   stretching, so the fixation circles never distort into ellipses.
+   .hero's top padding (above) is sized to match, so it's confined
+   to that gap and can't reach the nav or the title. */
 .scanpath {
   position: absolute;
-  top: -42px;
-  right: -20px;
-  width: 560px;
-  height: 250px;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
   z-index: -1;
   opacity: 0.9;
   pointer-events: none;
+  display: block;
 }
 .scanpath .fix {
   fill: var(--accent);
@@ -192,8 +204,8 @@ p { margin: 0 0 1.1em; max-width: 68ch; }
   stroke-width: 1.1;
   stroke-linecap: round;
   opacity: 0.28;
-  stroke-dasharray: 700;
-  stroke-dashoffset: 700;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
   animation: draw-scanpath 2.4s ease-out 0.2s forwards;
 }
 

@@ -12,8 +12,7 @@
 </head>
 <body>
 
-<nav class="site-nav">
-  <a class="name" href="index.html">A.J. Haskins</a>
+<nav class="site-nav site-nav--home">
   <ul>
     <li><a href="index.html" aria-current="page">About</a></li>
     <li><a href="research.html">Research</a></li>
@@ -25,17 +24,20 @@
 <main class="page">
   <div class="hero">
 
-    <!-- Faint scanpath graphic: a stylized eye-tracking trace,
-         drawn once on load. Purely decorative / behind the text. -->
-    <svg class="scanpath" viewBox="0 0 460 260" aria-hidden="true">
-      <circle class="fix" cx="40" cy="45" r="9"></circle>
-      <circle class="fix" cx="150" cy="20" r="4"></circle>
-      <circle class="fix" cx="260" cy="55" r="7"></circle>
-      <circle class="fix" cx="320" cy="140" r="4"></circle>
-      <circle class="fix" cx="220" cy="190" r="8"></circle>
-      <circle class="fix" cx="100" cy="165" r="4"></circle>
-      <circle class="fix" cx="60" cy="90" r="4"></circle>
-      <path d="M40,45 L150,20 L260,55 L320,140 L220,190 L100,165 L60,90"></path>
+    <!-- Faint scanpath graphic: a stylized eye-tracking trace running
+         across the gap between the nav and the title, drawn once on
+         load. Purely decorative / behind the content. The viewBox
+         aspect ratio matches its rendered box (see CSS) so the
+         fixation circles scale uniformly instead of stretching into
+         ellipses. -->
+    <svg class="scanpath" viewBox="0 0 900 81" aria-hidden="true">
+      <circle class="fix" cx="30" cy="55" r="9"></circle>
+      <circle class="fix" cx="190" cy="20" r="4"></circle>
+      <circle class="fix" cx="360" cy="50" r="7"></circle>
+      <circle class="fix" cx="530" cy="15" r="4"></circle>
+      <circle class="fix" cx="700" cy="45" r="8"></circle>
+      <circle class="fix" cx="860" cy="25" r="4"></circle>
+      <path d="M30,55 L190,20 L360,50 L530,15 L700,45 L860,25"></path>
     </svg>
 
     <h1>A.J. Haskins, Ph.D.</h1>
@@ -52,18 +54,11 @@
 
         <p>
           ajhaskins [at] ucsd.edu
-          &nbsp;·&nbsp;
-          <a href="https://orcid.org/0000-0002-3099-999X">ORCID</a>
         </p>
       </div>
     </div>
   </div>
 </main>
-
-<footer class="site-footer">
-  <span>A.J. Haskins</span>
-  <span>UC San Diego</span>
-</footer>
 
 </body>
 </html>
